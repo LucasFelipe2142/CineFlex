@@ -1,10 +1,10 @@
-let assentos =[];
-export default function guardar(num, retirar){
-    if(!retirar){
-        assentos.push(num);
-        return assentos;
+let assentos ;
+export default function guardar(array, validacao){
+    if(validacao == true){
+        assentos = array;
+        return array
     } else{
-        let cadeiras = assentos.filter(item => item === num)
-        return cadeiras
+        return assentos
     }
+   
 }

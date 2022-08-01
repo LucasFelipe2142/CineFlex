@@ -33,12 +33,12 @@ export default function Sessao() {
                 Selecione o(s) assento(s)
             </div>
             <Container_assentos>
-                {sessao.seats.map((sec, index) => (<Props_assento key={index} numero={sec.name} cor={sec.isAvailable} />))}
+                {sessao.seats.map((sec, index) => (<Props_assento key={index} numero={sec.name} cor={sec.isAvailable} id ={sec.id} />))}
             </Container_assentos>
 
             <Amostras />
 
-            <Dados_enviar />
+            <Dados_enviar film = {sessao.movie.title} date = {sessao.day.date + " " + sessao.name} />
 
             <Footer img = {sessao.movie.posterURL} text ={sessao.movie.title + ' ' + sessao.day.weekday + " - " + sessao.name} />
 

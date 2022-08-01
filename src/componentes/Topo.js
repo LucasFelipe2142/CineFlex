@@ -15,7 +15,7 @@ export default function Topo() {
 
 const Top = styled.div`
 	position: fixed;
-    min-width: 375px;
+    width: 100%;
     height: 67px;
     left: 0px;
     top: 0px;

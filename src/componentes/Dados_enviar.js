@@ -1,12 +1,15 @@
 import styled from 'styled-components';
 import guardar from './Guardar_valor';
 import { useNavigate } from 'react-router';
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
-export default function Dados_enviar(){
+export default function Dados_enviar(props){
     const navigate = useNavigate();
     const [cpf,setCpf] = useState('')
     const [nam,setNam] = useState('')
+    console.log(props.film)
+    
     return(
         <>
             <div className='dados'>
@@ -21,17 +24,32 @@ export default function Dados_enviar(){
                 </Dados>
             </div>
 
-            <Button onClick={() => verifica()}>Reservar assento(s)</Button>
+            <Button onClick={() => Verifica()}>Reservar assento(s)</Button>
         </>
     )
-    function verifica(){
+    function Verifica(){
+        let filme = props.film;
+        let data = props.date;
         let num = guardar()
         num.pop()
-        console.log(num)
-        console.log(cpf)
-        console.log(nam)
+
+        if(cpf !== '' && nam !== '' && num.length > 0 && cpf.length ===11){
+            const objeto = {
+                ids: num,
+                name: nam,
+                cpf: cpf
+            }
+            console.log(objeto)
+
+                const requisicao = axios.post(
+                    `https://mock-api.driven.com.br/api/v7/cineflex/seats/book-many`, objeto
+                );
         
-        navigate('/sucesso', { state: { cpf: {cpf}, nome: {nam}, assentos: {nam}} });
+                requisicao.then(() => console.log('foi'));
+                requisicao.catch(() => console.log('deu ruim'));
+
+            navigate('/sucesso', { state: { cpf: {cpf}, nome: {nam}, assentos: {num}, filme: {filme}, data: {data} } });
+        } else alert('preencha todos os campos corretamente')
     }
 }
 

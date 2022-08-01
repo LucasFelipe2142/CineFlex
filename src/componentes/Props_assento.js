@@ -15,7 +15,7 @@ export default function Props_assento(props) {
         
         :
 
-        <Assento cor={'#FBE192'} onClick={() => verifica()}>
+        <Assento cor={'#FBE192'} onClick={() => verifica(props.numero)}>
             {props.numero}
         </Assento>
     )
@@ -24,16 +24,16 @@ export default function Props_assento(props) {
         if(cor != '#8DD7CF'){
             if(selecionado == true) {
                 setSelecionado(!true)
-                assentos_selecionados.push(numero)
-                guardar(numero,false)
+                assentos_selecionados.push(numero);
+                console.log(assentos_selecionados)
+                guardar(assentos_selecionados,true)
             }
             else {
-                assentos_selecionados = assentos_selecionados.filter((item) => item !== numero)
+                assentos_selecionados = assentos_selecionados.filter(item => item !== numero)
+                console.log(assentos_selecionados)
                 setSelecionado(true)
-                guardar(numero,true)
             }
-        }
-        console.log(assentos_selecionados)
+        }else alert("Esse assento não está disponível")
     }    
 
 }

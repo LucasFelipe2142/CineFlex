@@ -21,7 +21,7 @@ export default function Flyer_container(props) {
 
 const Footer = styled.div`
     position: fixed;
-    width: 375px;
+    width: 100%;
     height: 117px;
     left: 0px;
     bottom: 0px;
