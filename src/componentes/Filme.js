@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import Props_horarios from './Props_horario';
+import Footer from './Footer'
 
 export default function Filme() {
     const params = useParams();
@@ -31,6 +32,8 @@ export default function Filme() {
 
              {filme.days.map((horarios, index) => (<Props_horarios key = {index} dia={horarios.weekday}
                 data={horarios.date} horarios={horarios.showtimes} />))}
+
+            <Footer/>
 
         </Container>
     )
