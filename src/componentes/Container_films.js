@@ -6,7 +6,7 @@ export default function Container_films() {
 
         <Container>
             <div className='text'>
-                Selecione o horário
+                Selecione o Filme
             </div>
             <Flyer />
         </Container>
