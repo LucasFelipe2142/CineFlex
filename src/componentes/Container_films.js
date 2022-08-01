@@ -5,9 +5,9 @@ export default function Container_films() {
     return (
 
         <Container>
-            <text>
+            <div className='text'>
                 Selecione o horário
-            </text>
+            </div>
             <Flyer />
         </Container>
     )
@@ -19,7 +19,7 @@ const Container = styled.div`
     flex-wrap: wrap;
     justify-content: space-evenly;
 
-    text{
+    .text{
         width: 374px;
         height: 110px;
         left: 0px;

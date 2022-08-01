@@ -17,9 +17,12 @@ export default function Flyer_container() {
     return (
         <>
             {flyer.map((movie, index) => (
-                <Link to={`/filme/${movie.id}`}>
-                    <Flyer_props key={index} url={movie.posterURL} />
-                </Link>))}
+                <div key={movie.id}>
+                    <Link to={`/filme/${movie.id}`}>
+                        <Flyer_props key={index} url={movie.posterURL} />
+                    </Link>
+                </div>))}
+                
         </>
     );
 

@@ -1,9 +1,11 @@
+
 import styled from 'styled-components';
 import { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from "axios";
+import Props_horarios from './Props_horario';
 
-export default function Filme(){
+export default function Filme() {
     const params = useParams();
     const [filme, setFilme] = useState([]);
 
@@ -16,14 +18,20 @@ export default function Filme(){
     }, []);
 
     console.log(filme)
-    return(
+
+    if(filme.length === 0){
+        return <img src = ""/>
+    }
+
+    return (
         <Container>
-            <text>
+            <div className='text'>
                 Selecione o horário
-            </text>
-            <Container_horarios>
-                {/* {filme.days.weekday} - {filme.days.date} */}
-            </Container_horarios>
+            </div>
+
+             {filme.days.map((horarios, index) => (<Props_horarios key = {index} dia={horarios.weekday}
+                data={horarios.date} horarios={horarios.showtimes} />))}
+
         </Container>
     )
 
@@ -31,8 +39,22 @@ export default function Filme(){
 
 const Container = styled.div`
 
-`
+    .text{
+        width: 374px;
+        height: 110px;
 
-const Container_horarios = styled.div`
+        font-family: 'Roboto',sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 28px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        letter-spacing: 0.04em;
 
+        color: #293845;
+
+    }
 `
