@@ -31,7 +31,6 @@ export default function Dados_enviar(props){
         let filme = props.film;
         let data = props.date;
         let num = guardar()
-        num.pop()
 
         if(cpf !== '' && nam !== '' && num.length > 0 && cpf.length == 11){
             const objeto = {
