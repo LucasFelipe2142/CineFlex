@@ -12,6 +12,7 @@ export default function App() {
         <Route path="/" element={<Container_films />} />
         <Route path="/filme/:id" element={<Filme />} />
         <Route path="/sessao/:id" element={<Sessao />} />
+        <Route path="/sucesso" element={<Container_films />} />
       </Routes>
     </BrowserRouter>
   );
