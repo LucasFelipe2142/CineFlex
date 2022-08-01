@@ -7,7 +7,8 @@ import Footer from './Footer'
 export default function Sessao() {
 
     const params = useParams();
-    const [sessao, setSessao] = useState([]);
+    const [sessao, setSessao] = useState([])
+    let text_footer = sessao.movie.title + ' ' + sessao.day.weekday + " - " + sessao.name
 
     useEffect(() => {
         const requisicao = axios.get(
@@ -66,7 +67,7 @@ export default function Sessao() {
 
             <Button>Reservar assento(s)</Button>
 
-            <Footer />
+            <Footer img = {sessao.movie.posterURL} text ={text_footer} />
 
         </Container>
     )

@@ -33,7 +33,7 @@ export default function Filme() {
              {filme.days.map((horarios, index) => (<Props_horarios key = {index} dia={horarios.weekday}
                 data={horarios.date} horarios={horarios.showtimes} />))}
 
-            <Footer/>
+            <Footer img = {filme.posterURL} text = {filme.title} />
 
         </Container>
     )
